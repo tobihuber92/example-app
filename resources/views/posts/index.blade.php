@@ -1,10 +1,9 @@
 @extends('posts.layout')
  
 @section('content')
-    <div class="row" style="margin-top: 5rem;">
+    <div class="row" style="margin-top: 1rem;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - laravelcode.com</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New Post</a>
