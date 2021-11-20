@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CalculatorController;
 
 Route::resource('posts', PostController::class);
 
@@ -29,4 +30,6 @@ require __DIR__.'/auth.php';
 Route::get('/calculator', function () {
     return view('calculator.index');
 })->middleware(['auth'])->name('calculator');
+
+Route::post('/calculator', [CalculatorController::class, 'store']);
 

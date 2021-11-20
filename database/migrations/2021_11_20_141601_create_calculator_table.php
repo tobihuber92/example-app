@@ -13,7 +13,7 @@ class CreateCalculatorTable extends Migration
      */
     public function up()
     {
-        Schema::create('calculator', function (Blueprint $table) {
+        Schema::create('calculators', function (Blueprint $table) {
             $table->id();
             $table->integer("Entfernung");
             $table->float("PreisProLiter");
@@ -30,6 +30,6 @@ class CreateCalculatorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calculator');
+        Schema::dropIfExists('calculators');
     }
 }

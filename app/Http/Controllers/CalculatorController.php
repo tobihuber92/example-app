@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Calculator;
 
 class CalculatorController extends Controller
 {
@@ -34,7 +35,23 @@ class CalculatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()-> validate([
+            'Entfernung' => 'required',
+            'Preis' => 'required',
+            'Verbrauch' => 'required',
+            'Anzahl' => 'required',]
+        );
+        Calculator::create(
+            [
+                "Entfernung" => request("Entfernung"),
+                "PreisProLiter" => request("Preis"),
+                "Benzinverbrauch" => request("Verbrauch"),
+                "AnzahlFahrer" => request("Anzahl"),
+            ]
+            );
+
+            return redirect()->route('calculator')
+                        ->with('success','Post deleted successfully');
     }
 
     /**
