@@ -1,13 +1,13 @@
 <html>
 <head>
-    <title>Crud</title>
+    <title>Hey!</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crud') }}
+            {{ __('Tobis Web Applikation') }}
         </h2>
     </x-slot>
 
