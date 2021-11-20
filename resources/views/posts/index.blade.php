@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 @extends('posts.layout')
  
 @section('content')
@@ -23,6 +24,7 @@
             <th>Name</th>
             <th>Details</th>
             <th width="280px">Action</th>
+            <th>Rating</th>
         </tr>
         @foreach ($data as $key => $value)
         <tr>
@@ -37,6 +39,13 @@
                     @method('DELETE')      
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
+            </td>
+            <td>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
             </td>
         </tr>
         @endforeach
