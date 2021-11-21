@@ -44,10 +44,9 @@ function calculate() {
 
   kilometerkosten= verbrauch*preis/100;
   
-  Math.round(spritpreis=kilometerkosten*entfernung);
-  Math.round(spritpreisAufgeteilt=spritpreis/anzahl);
+  spritpreis= kilometerkosten*entfernung;
+  spritpreisAufgeteilt=spritpreis/anzahl;
 
-  console.log(spritpreisAufgeteilt);
 }
 
 
@@ -60,8 +59,8 @@ function alert(message, type) {
 
 if (alertTrigger) {
   alertTrigger.addEventListener('click', function () {
-    alert('Spritpreis insgesamt: ' + spritpreis +'€', 'success')
-    alert('Spritpreis pro Person: ' + spritpreisAufgeteilt +'€', 'success')
+    alert('Spritpreis insgesamt: ' + spritpreis.toFixed(2) +'€', 'success')
+    alert('Spritpreis pro Person: ' + spritpreisAufgeteilt.toFixed(2) +'€', 'success')
     
   })
 }
