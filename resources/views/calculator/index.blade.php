@@ -19,18 +19,21 @@
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Anzahl der Beteiligten</label>
     <input type="number" class="form-control" step="1" name="Anzahl" id="Anzahl">
+
   </div>
+  <div id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn" onclick="calculate()">Berechnen</button>
+
   <button type="submit" class="btn btn-primary">Speichern</button>
-  <div>
-      <br></br>
-      <h1>Die Spritkosten betragen €. Jeder Person muss € bezahlen!</h1>
-      <h1 id="printHere"></h1>
-  </div>
 </form>
-<button class="btn btn-primary" onclick="calculate()">Berechnen</button>
+
+
+
+
 
 <script>
-
+var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+var alertTrigger = document.getElementById('liveAlertBtn')
 
 function calculate() {
   var entfernung = document.getElementById("Entfernung").value;
@@ -40,15 +43,28 @@ function calculate() {
 
 
   kilometerkosten= verbrauch*preis/100;
-  spritpreis=kilometerkosten*entfernung;
-
-  spritpreisAufgeteilt=spritpreis/anzahl;
+  
+  Math.round(spritpreis=kilometerkosten*entfernung);
+  Math.round(spritpreisAufgeteilt=spritpreis/anzahl);
 
   console.log(spritpreisAufgeteilt);
+}
 
-  document.getElementById("printHere").innerHTML = spritpreisAufgeteilt;
 
-} 
+function alert(message, type) {
+  var wrapper = document.createElement('div')
+  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+  alertPlaceholder.append(wrapper)
+}
+
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', function () {
+    alert('Spritpreis insgesamt: ' + spritpreis +'€', 'success')
+    alert('Spritpreis pro Person: ' + spritpreisAufgeteilt +'€', 'success')
+    
+  })
+}
 
 </script>
 
