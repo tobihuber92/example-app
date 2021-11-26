@@ -33,3 +33,5 @@ Route::get('/calculator', function () {
 
 Route::post('/calculator', [CalculatorController::class, 'store']);
 
+Route::get('/calculate-function', [CalculatorController::class, 'calculate']);
+

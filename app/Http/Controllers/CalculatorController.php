@@ -7,6 +7,18 @@ use App\Models\Calculator;
 
 class CalculatorController extends Controller
 {
+    public function calculate(Request $request)
+    {
+        $Kilometerkosten= $request -> Verbrauch*$request -> Preis/100;
+        $spritpreis= $Kilometerkosten*$request -> Entfernung;
+        $spritpreisAufgeteilt= $spritpreis/$request -> Anzahl;
+
+        $spritpreisAufgeteilt=round($spritpreisAufgeteilt, 2);
+        $spritpreis=round($spritpreis, 2);
+
+        return response()-> json(["SpritpreisAufgeteilt"=>$spritpreisAufgeteilt, "SpritpreisGesamt"=>$spritpreis]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
